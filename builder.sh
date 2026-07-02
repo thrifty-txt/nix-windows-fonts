@@ -25,4 +25,8 @@ mount -t udf "$loopDev" "$isoMount"
 
 echo "extracting fonts..."
 mkdir -p "$out/share/fonts/$version"
-7z e -o"$out/share/fonts/$version" "$isoMount/sources/install.wim" Windows/Fonts/"*".{ttf,ttc}
+wimlib-imagex extract "$isoMount/sources/install.wim" 1 \
+  "Windows/Fonts/*.ttf" \
+  "Windows/Fonts/*.ttc" \
+  --dest-dir="$out/share/fonts/$version" \
+  --no-acls --no-attributes

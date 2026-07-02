@@ -12,6 +12,7 @@
   cacert,
   util-linux,
   p7zip,
+  wimlib
 }:
 stdenv.mkDerivation {
   pname = "windows-fonts";
@@ -26,7 +27,7 @@ stdenv.mkDerivation {
     httpdirfs
     cacert
     util-linux
-    p7zip
+    wimlib
   ];
 
   outputHashMode = "recursive";
